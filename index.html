@@ -4,24 +4,34 @@
 		<title>Sammi Olinsky</title>
 		<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&family=Unna:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 		<style type="text/css">
+			body {
+				display: grid;
+				grid-template-rows: 1fr 5fr 1fr;
+				margin-left: auto;
+				margin-right: auto;
+				max-width: 1000px;
+				padding: 0 5vw;
+			}
+
+
 			h1 {
-				color: white;
+				color: #ff8854;
 				font-family: 'Unna', serif;
 				font-size: 4em;
+				height: .4em;
+			}
+
+			h2 {
+				color:#4c9fd9;
+				font-family: 'Open Sans', sans-serif;
+				font-weight: 300;
+
 			}
 
 			.name {
 				z-index: 2;
 				position: relative;
-			}
-      .name:after {
-				content: "Sammi Olinsky";
-        -webkit-text-stroke: 3.5px #4c9fd9;
-      	text-shadow: -4px -3px 0 #ff8854, -2px -3px 0 #ff8854;
-      	z-index: -2;
-      	position: absolute;
-        left:0;
-        font-size:1em;
+				margin-top: 8px;
 			}
 
 			p {
@@ -29,11 +39,65 @@
 				font-family: 'Open Sans', sans-serif;
 			}
 
+			header {
+				display: grid;
+				grid-template-columns: minmax(410px, 2fr) 3fr;
+				align-items: center;
+				padding-bottom: 30px;
+			}
+
+			.home {
+				height: 100px;
+				padding: 0;
+				margin-right: 10px;
+			}
+
+			nav {
+				display: inline-block;
+				padding: 40px 0px;
+				justify-self: end;
+			}
+			nav a {
+				font-family: 'Unna', serif;
+				font-weight: 800;
+				letter-spacing: 1.5px;
+				font-size: 1.6em;
+				text-decoration: none;
+				color: white;
+				background-color: rgba(255, 136, 84, .8);
+				padding: .2em .15em;
+				margin: 2.5vw;
+			}
+			nav a:hover {
+				color: rgba(255, 136, 84, .8);
+				background-color: rgba(255, 136, 84, .3)
+			}
+
+			main {
+				display: grid;
+				grid-template-columns: repeat(12, 1fr);
+			}
+
+			.span6 {
+				grid-column: 1 / span 6;
+			}
 		</style>
 
 	</head>
 	<body>
-		<h1><h1 class="name">Sammi Olinsky</h1></h1>
-		<p>Here are some words!</p>
+		<header>
+			<div class="home">
+				<h1 class="name">Sammi Olinsky</h1>
+				<h2>Creative Problem Solver</h2>
+			</div>
+			<nav>
+				<a href="aboutme.html">About Me</a>
+				<a href="portfolio.html">Portfolio</a>
+				<a href="resume.html">Resume</a>
+			</nav>
+		</header>
+	<main>
+		<p class="span6">My curious nature to discover new things and learn about the world around me is an integral part of what makes me unique. I consider myself intuitive in more ways than one; I am able to both connect and empathize with people as well as understand intricate concepts. These skills make me a fast learner and a determined, resourceful problem solver.</p>
+	</main>
 	</body>
 </html>
