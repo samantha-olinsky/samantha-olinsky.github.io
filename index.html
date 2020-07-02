@@ -4,8 +4,13 @@
 		<title>Sammi Olinsky</title>
 		<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&family=Unna:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 		<style type="text/css">
+			html {
+				scroll-behavior: smooth;
+			}
+
 			body {
 				display: grid;
+				background-color: rgba(255, 136, 84, .1);
 				grid-template-rows: 1fr 5fr 1fr;
 				margin-left: auto;
 				margin-right: auto;
@@ -22,7 +27,7 @@
 			}
 
 			h2 {
-				color:#4c9fd9;
+				color: #4c9fd9;
 				font-family: 'Open Sans', sans-serif;
 				font-weight: 300;
 
@@ -37,6 +42,7 @@
 			p {
 				color: #45465c;
 				font-family: 'Open Sans', sans-serif;
+				align-self: start;
 			}
 
 			header {
@@ -70,17 +76,51 @@
 			}
 			nav a:hover {
 				color: rgba(255, 136, 84, .8);
-				background-color: rgba(255, 136, 84, .3)
+				background-color: rgba(255, 136, 84, .3);
 			}
 
-			main {
+			section {
 				display: grid;
 				grid-template-columns: repeat(12, 1fr);
+				column-gap: 20px;
 			}
 
 			.span6 {
-				grid-column: 1 / span 6;
+				grid-column: span 6;
 			}
+
+			h3 {
+				font-family: 'Unna', serif;
+				font-weight: 800;
+				letter-spacing: 1.5px;
+				grid-column: 1 / 12;
+				color: rgba(255, 136, 84, .8);
+				font-size: 1.6em;
+				line-height: 1em;
+			}
+
+			#me-pic {
+				grid-column: 1 / span 2;
+				width: 100%;
+			}
+
+			address {
+				font-style: normal;
+				grid-column: 1 / span 12;
+			}
+
+			h4 {
+				font-family: 'Open Sans', sans-serif;
+				font-weight: 600;
+				color: #4c9fd9;
+			}
+
+			h4 a {
+				color: #45465c;
+				font-family: 'Open Sans', sans-serif;
+				font-weight: 200;
+			}
+
 		</style>
 
 	</head>
@@ -91,13 +131,32 @@
 				<h2>Creative Problem Solver</h2>
 			</div>
 			<nav>
-				<a href="aboutme.html">About Me</a>
-				<a href="portfolio.html">Portfolio</a>
-				<a href="resume.html">Resume</a>
+				<a href="#portfolio">Portfolio</a>
+				<a href="#contact">Contact Me</a>
+				<a href="#resume">Resume</a>
 			</nav>
 		</header>
 	<main>
-		<p class="span6">My curious nature to discover new things and learn about the world around me is an integral part of what makes me unique. I consider myself intuitive in more ways than one; I am able to both connect and empathize with people as well as understand intricate concepts. These skills make me a fast learner and a determined, resourceful problem solver.</p>
+		<section id="about">
+				<h3>About Me</h3>
+			<img id="me-pic" src="sammi-pic.jpg" alt="pic of sammi">
+			<p class="span6">My curious nature to discover new things and learn about the world around me is an integral part of what makes me unique. I consider myself intuitive in more ways than one; I am able to both connect and empathize with people as well as understand intricate concepts. These skills make me a fast learner and a determined, resourceful problem solver.</p>
+		</section>
+		<section id="portfolio">
+			<h3>Porfolio</h3>
+		</section>
+		<section id="contact">
+			<h3>Contact Me</h3>
+			<p class="span6">Have a question for me? Looking to collaborate on a project together? Want to give me some feedback on my work? Don't hesitate to reach out!</p>
+			<address>
+					<h4>Email: <a href="mailto:samantha.olinsky@gmail.com"> samantha.olinsky@gmail.com</a></h4>
+					<h4>Cell Phone: <a href="tel:18455582327">845-558-2327</a></h4>
+					<h4>LinkedIn: <a href="https://www.linkedin.com/in/samanthaolinsky/">Samantha Olinsky</a></h4>
+			</address>
+		</section>
+		<section id="resume">
+			<h3>Resume</h3>
+		</section>
 	</main>
 	</body>
 </html>
