@@ -1,4 +1,3 @@
-
 function changeMargin() {
   var w = window.innerWidth
   || document.documentElement.clientWidth
@@ -13,7 +12,16 @@ function changeMargin() {
 
   document.getElementById("illustration").style.marginTop = hdiv2+"px";
   document.getElementById("illustration").style.marginLeft = wdiv2+"px";
-};
+}
 
-changeMargin();
-window.onresize = changeMargin;
+function checktoChange() {
+  if (document.getElementById("illustration").style.width > "500px") {
+    document.getElementById("illustration").style.marginTop = "0px";
+    document.getElementById("illustration").style.marginLeft = "0px";
+  } else {
+    changeMargin();
+  }
+}
+
+checktoChange();
+window.onresize = checktoChange;
