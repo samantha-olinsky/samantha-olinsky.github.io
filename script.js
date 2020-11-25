@@ -25,3 +25,38 @@ function checktoChange() {
 
 checktoChange();
 window.onresize = checktoChange;
+
+$(document).ready(function(){
+
+
+
+var a = document.getElementById("theobject");
+
+            // It's important to add an load event listener to the object,
+            // as it will load the svg doc asynchronously
+            a.addEventListener("load",function(){
+
+                // get the inner DOM of the svg
+                var svgDoc = a.contentDocument;
+                // get the inner element by id
+                var element = svgDoc.getElementById("desktop");
+                // add behaviour
+                element.addEventListener("mouseenter", reveal, false);
+                element.addEventListener("mouseleave", hide, false);
+            }, false);
+
+
+
+});
+
+
+function reveal(evt) {
+  theId = evt.currentTarget.id
+  comb = theId + "-whitebox"
+  document.getElementById(comb).style.display = "block";
+}
+function hide(evt) {
+  theId = evt.currentTarget.id
+  comb = theId + "-whitebox"
+  document.getElementById(comb).style.display = "none";
+}
