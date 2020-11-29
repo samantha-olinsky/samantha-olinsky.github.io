@@ -38,13 +38,14 @@ $(document).ready(function(){
     // get the inner element by id
     myList.forEach(function(item) {
       var itembx = item + "-whitebox"
-      var itemblur = item + "-blur"
+      var itemOuter = item + "-outer"
 
       var timer;
 
       $(item).hover(function () {
           $(itembx).show();
-          $(itemblur).show();
+          $(itemOuter).css({ stroke: "white" });
+          $(itemOuter).css({ "stroke-width": "6px" });
       });
 
       $(item + "," + itembx).hover(function (e) {
@@ -52,7 +53,7 @@ $(document).ready(function(){
       }).mouseleave(function (e) {
           timer = setTimeout(function () {
               $(itembx).hide();
-              $(itemblur).hide();
+              $(itemOuter).css({ "stroke-width": "0px" });
           }, 1)
       });
     });
