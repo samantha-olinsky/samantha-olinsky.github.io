@@ -1,45 +1,26 @@
 $(document).ready(function(){
-
-  function changeMargin() {
-    var w = window.innerWidth
-    || document.documentElement.clientWidth
-    || document.body.clientWidth;
-
-    var h = window.innerHeight
-    || document.documentElement.clientHeight
-    || document.body.clientHeight;
-
-    let hpos = - ( h / 4);
-    let wpos = - ( w / 4);
-
-    document.getElementById("main").style.marginTop = hpos+"px";
-    document.getElementById("main").style.marginLeft = wpos+"px";
-
-  };
-
-
-  function checktoChange() {
-    if (document.getElementById("main").style.width > "500px") {
-      document.getElementById("main").style.marginTop = "0px";
-      document.getElementById("main").style.marginLeft = "0px";
-    } else {
-      changeMargin();
-    }
-  };
-
-  checktoChange();
-  window.onresize = checktoChange;
-
   var svg = document.getElementById("svg");
-  var myList = ["#desktop","#laptop","#dog","#owl","#city","#poster","#lanyard"]
-  // It's important to add an load event listener to the object,
-  // as it will load the svg doc asynchronously
+
   svg.addEventListener("load",function(){
+
+    // change viewBox of the svg
+    function resizeSVG() {
+      var vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
+      if (vw > 1100) {
+        // desktop sizes
+        svg.setAttribute("viewBox", "350 300 2500 1800");
+      } else {
+        // mobile and tablet sizes
+        svg.setAttribute("viewBox", "880 620 1450 1300");
+      }
+    };
+
+    var myList = ["#desktop","#laptop","#dog","#owl","#city","#poster","#lanyard"]
+
     // get the inner element by id
     myList.forEach(function(item) {
       var itembx = item + "-whitebox"
       var itemOuter = item + "-outer"
-
       var timer;
 
       $(item).hover(function () {
@@ -57,11 +38,11 @@ $(document).ready(function(){
           }, 1)
       });
     });
+
+
+
+    resizeSVG();
+    window.onresize = resizeSVG;
+
   }, false);
-
-
-
-
-
-
 });
