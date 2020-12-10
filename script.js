@@ -40,12 +40,12 @@ $(document).ready(function(){
     });
 
     // If browser supports pointer events
-    if (window.PointerEvent) {
-      svg.addEventListener('pointerdown', onPointerDown); // Pointer is pressed
-      svg.addEventListener('pointerup', onPointerUp); // Releasing the pointer
-      svg.addEventListener('pointerleave', onPointerUp); // Pointer gets out of the SVG area
-      svg.addEventListener('pointermove', onPointerMove); // Pointer is moving
-    } else {
+    // if (window.PointerEvent) {
+    //   svg.addEventListener('pointerdown', onPointerDown); // Pointer is pressed
+    //   svg.addEventListener('pointerup', onPointerUp); // Releasing the pointer
+    //   svg.addEventListener('pointerleave', onPointerUp); // Pointer gets out of the SVG area
+    //   svg.addEventListener('pointermove', onPointerMove); // Pointer is moving
+    // } else {
       // Add all mouse events listeners fallback
       svg.addEventListener('mousedown', onPointerDown); // Pressing the mouse
       svg.addEventListener('mouseup', onPointerUp); // Releasing the mouse
@@ -56,7 +56,7 @@ $(document).ready(function(){
       svg.addEventListener('touchstart', onPointerDown); // Finger is touching the screen
       svg.addEventListener('touchend', onPointerUp); // Finger is no longer touching the screen
       svg.addEventListener('touchmove', onPointerMove); // Finger is moving
-    }
+    // }
 
     // Create an SVG point that contains x & y values
     var point = svg.createSVGPoint();
