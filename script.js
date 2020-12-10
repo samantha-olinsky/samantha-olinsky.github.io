@@ -2,11 +2,11 @@ $(document).ready(function(){
   var svg = document.getElementById("svg");
   svg.addEventListener("load",function(){
 
-    var vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
-    var vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0)
     var myList = ["#desktop","#laptop","#poster","#lanyard","#dog","#owl","#city"];
     // change viewBox of the svg
     function resizeSVG() {
+      var vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
+      var vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0)
       if (vw > 1100) {
         // desktop sizes
         svg.setAttribute("viewBox", "350 300 2500 1900");
@@ -52,10 +52,6 @@ $(document).ready(function(){
 
 
 
-
-
-    function nextView(){
-    };
 
 
     //DRAG BEHAVIOR -- NOT WORKING PROPERLY
