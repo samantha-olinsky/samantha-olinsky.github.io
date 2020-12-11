@@ -78,7 +78,7 @@ $(document).ready(function(){
 
       $(".welcome").hide();
       $("button").hide();
-      $(".whitebox").hide()
+      $(".whitebox").hide();
       $("#mobile-nav").show();
       var currentViewBox = views[myList[currentPos]];
       var itembx = myList[currentPos] + "-whitebox" ;
@@ -103,7 +103,7 @@ $(document).ready(function(){
       };
       $(".welcome").hide();
       $("button").hide();
-      $(".whitebox").hide()
+      $(".whitebox").hide();
       $("#mobile-nav").show();
       var currentViewBox = views[myList[currentPos]];
       var itembx = myList[currentPos] + "-whitebox" ;
@@ -123,7 +123,7 @@ $(document).ready(function(){
     function goHome() {
       $(".welcome").show();
       $("button").show();
-      $(".whitebox").hide()
+      $(".whitebox").hide();
       $("#mobile-nav").hide();
 
       TweenMax.to(svg, 2, {
