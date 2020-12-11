@@ -2,17 +2,18 @@ $(document).ready(function(){
   var svg = document.getElementById("svg");
   svg.addEventListener("load",function(){
 
-    var vw = Math.max(screen.availWidth || 0, window.innerWidth || 0);
-    var vh = Math.max(screen.availHeight || 0, window.innerHeight || 0);
+    var vw = Math.min(screen.availWidth , window.innerWidth );
+    var vh = Math.min(screen.availHeight , window.innerHeight );
 
     var myList = ["#desktop","#laptop","#poster","#lanyard","#dog","#owl","#city"];
     // change viewBox of the svg
     function resizeSVG() {
-      vw = Math.max(screen.availWidth || 0, window.innerWidth || 0);
-      vh = Math.max(screen.availHeight || 0, window.innerHeight || 0);
-      if (vw > 1100) {
+      vw = Math.min(screen.availWidth , window.innerWidth );
+      vh = Math.min(screen.availHeight , window.innerHeight );
+      if (vw >= 1100) {
         // desktop sizes
         svg.setAttribute("viewBox", "350 300 2500 1900");
+        $("#mainbuttons").hide();
         // get the inner element by id
         myList.forEach(function(item) {
           var itembx = item + "-whitebox"
@@ -49,7 +50,8 @@ $(document).ready(function(){
         // mobile and tablet sizes
         svg.setAttribute("viewBox", "880 620 1450 1300");
 
-        $("#mobile-nav").hide();
+        $("#mobilenav").hide();
+        $("#mainbuttons").show();
 
         document.getElementById("discoverButton").addEventListener("click", changeView);
         document.getElementById("forward-arrow").addEventListener("click", changeView);
@@ -79,7 +81,7 @@ $(document).ready(function(){
       $(".welcome").hide();
       $("button").hide();
       $(".whitebox").hide();
-      $("#mobile-nav").show();
+      $("#mobilenav").show();
       var currentViewBox = views[myList[currentPos]];
       var itembx = myList[currentPos] + "-whitebox" ;
 
@@ -104,7 +106,7 @@ $(document).ready(function(){
       $(".welcome").hide();
       $("button").hide();
       $(".whitebox").hide();
-      $("#mobile-nav").show();
+      $("#mobilenav").show();
       var currentViewBox = views[myList[currentPos]];
       var itembx = myList[currentPos] + "-whitebox" ;
 
@@ -125,7 +127,7 @@ $(document).ready(function(){
       $(".welcome").show();
       $("button").show();
       $(".whitebox").hide();
-      $("#mobile-nav").hide();
+      $("#mobilenav").hide();
 
       TweenMax.to(svg, 2, {
         attr:{
@@ -223,7 +225,7 @@ $(document).ready(function(){
 
 
     resizeSVG();
-    window.onresize = resizeSVG;
+    document.getElementsByTagName("BODY")[0].onresize = resizeSVG;
 
   }, false);
 });
