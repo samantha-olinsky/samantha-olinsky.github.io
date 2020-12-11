@@ -49,9 +49,9 @@ $(document).ready(function(){
         // mobile and tablet sizes
         svg.setAttribute("viewBox", "880 620 1450 1300");
 
-        document.getElementById("disoverButton").addEventListener("click", changeView);
-
         $("#mobile-nav").hide();
+
+        document.getElementById("discoverButton").addEventListener("click", changeView);
         document.getElementById("forward-arrow").addEventListener("click", changeView);
         document.getElementById("back-arrow").addEventListener("click", goBack);
         document.getElementById("home").addEventListener("click", goHome);
