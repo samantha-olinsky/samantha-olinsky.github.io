@@ -1,6 +1,6 @@
 $(document).ready(function(){
   var svg = document.getElementById("svg");
-  
+
   svg.addEventListener("load",function(){
 
     var vw = Math.min(screen.availWidth , window.innerWidth );
@@ -9,6 +9,9 @@ $(document).ready(function(){
     var myList = ["#desktop","#laptop","#poster","#lanyard","#dog","#owl","#city"];
     // change viewBox of the svg
     function resizeSVG() {
+
+      $("#mainbuttons").hide();
+
       vw = Math.min(screen.availWidth , window.innerWidth );
       vh = Math.min(screen.availHeight , window.innerHeight );
       if (vw >= 1100) {
