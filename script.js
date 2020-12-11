@@ -2,11 +2,14 @@ $(document).ready(function(){
   var svg = document.getElementById("svg");
   svg.addEventListener("load",function(){
 
+    var vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
+    var vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0)
+
     var myList = ["#desktop","#laptop","#poster","#lanyard","#dog","#owl","#city"];
     // change viewBox of the svg
     function resizeSVG() {
-      var vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
-      var vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0)
+      vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
+      vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0)
       if (vw > 1100) {
         // desktop sizes
         svg.setAttribute("viewBox", "350 300 2500 1900");
@@ -45,12 +48,92 @@ $(document).ready(function(){
       } else {
         // mobile and tablet sizes
         svg.setAttribute("viewBox", "880 620 1450 1300");
-      }
+
+        document.getElementById("disoverButton").addEventListener("click", changeView)
+
+        $("#mobile-nav").hide()
+        document.getElementById("forward-arrow").addEventListener("click", changeView)
+        document.getElementById("back-arrow").addEventListener("click", goBack)
+        document.getElementById("home").addEventListener("click", goHome)
+      };
     };
 
+    var currentPos = -1;
+    var views = {
+      "#desktop": "1300 1220 800 700",
+      "#laptop": "1060 1220 800 700",
+      "#poster": "1430 770 900 900",
+      "#lanyard": "1650 1250 600 500",
+      "#dog": "1590 1400 900 900",
+      "#owl": "860 1020 800 700",
+      "#city": "1430 770 900 900"
+    };
 
+    function changeView() {
+      if (currentPos == 5) {
+        currentPos = 0;
+      } else {
+        currentPos = currentPos + 1;
+      };
 
+      $(".welcome").hide();
+      $("button").hide();
+      $(".whitebox").hide()
+      $("#mobile-nav").show();
+      var currentViewBox = views[myList[currentPos]];
+      var itembx = myList[currentPos] + "-whitebox" ;
 
+      $(itembx).css({"width": vw-100 , "margin": " 0 auto", "position": "relative", "top": "410px"});
+      $(itembx).show();
+
+      TweenMax.to(svg, 2, {
+        attr:{
+          viewBox: currentViewBox
+        },
+        ease: Power3.easeOut
+      });
+
+    };
+
+    function goBack() {
+      if (currentPos == 0) {
+        currentPos = 5;
+      } else {
+        currentPos = currentPos - 1;
+      };
+      $(".welcome").hide();
+      $("button").hide();
+      $(".whitebox").hide()
+      $("#mobile-nav").show();
+      var currentViewBox = views[myList[currentPos]];
+      var itembx = myList[currentPos] + "-whitebox" ;
+
+      $(itembx).css({"width": vw-100 , "margin": " 0 auto", "position": "relative", "top": "410px"});
+      $(itembx).show();
+
+      TweenMax.to(svg, 2, {
+        attr:{
+          viewBox: currentViewBox
+        },
+        ease: Power3.easeOut
+      });
+
+    };
+
+    function goHome() {
+      $(".welcome").show();
+      $("button").show();
+      $(".whitebox").hide()
+      $("#mobile-nav").hide();
+
+      TweenMax.to(svg, 2, {
+        attr:{
+          viewBox: "880 620 1450 1300"
+        },
+        ease: Power3.easeOut
+      });
+
+    };
 
 
 
@@ -133,7 +216,6 @@ $(document).ready(function(){
     //   // The pointer is no longer considered as down
     //   isPointerDown = false;
     // }
-
 
 
 
