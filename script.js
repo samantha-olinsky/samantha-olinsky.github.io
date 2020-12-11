@@ -10,9 +10,10 @@ $(document).ready(function(){
     function resizeSVG() {
       vw = Math.max(screen.availWidth || 0, window.innerWidth || 0);
       vh = Math.max(screen.availHeight || 0, window.innerHeight || 0);
-      if (vw > 1100) {
+      if (vw >= 1100) {
         // desktop sizes
         svg.setAttribute("viewBox", "350 300 2500 1900");
+
         // get the inner element by id
         myList.forEach(function(item) {
           var itembx = item + "-whitebox"
@@ -49,7 +50,7 @@ $(document).ready(function(){
         // mobile and tablet sizes
         svg.setAttribute("viewBox", "880 620 1450 1300");
 
-        $("#mobile-nav").hide();
+        $("#mobilenav").hide();
 
         document.getElementById("discoverButton").addEventListener("click", changeView);
         document.getElementById("forward-arrow").addEventListener("click", changeView);
@@ -79,7 +80,7 @@ $(document).ready(function(){
       $(".welcome").hide();
       $("button").hide();
       $(".whitebox").hide();
-      $("#mobile-nav").show();
+      $("#mobilenav").show();
       var currentViewBox = views[myList[currentPos]];
       var itembx = myList[currentPos] + "-whitebox" ;
 
@@ -104,7 +105,7 @@ $(document).ready(function(){
       $(".welcome").hide();
       $("button").hide();
       $(".whitebox").hide();
-      $("#mobile-nav").show();
+      $("#mobilenav").show();
       var currentViewBox = views[myList[currentPos]];
       var itembx = myList[currentPos] + "-whitebox" ;
 
@@ -125,7 +126,7 @@ $(document).ready(function(){
       $(".welcome").show();
       $("button").show();
       $(".whitebox").hide();
-      $("#mobile-nav").hide();
+      $("#mobilenav").hide();
 
       TweenMax.to(svg, 2, {
         attr:{
@@ -223,7 +224,7 @@ $(document).ready(function(){
 
 
     resizeSVG();
-    window.onresize = resizeSVG;
+    document.getElementsByTagName("BODY")[0].onresize = resizeSVG;
 
   }, false);
 });
