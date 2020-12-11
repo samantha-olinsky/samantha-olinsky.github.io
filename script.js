@@ -1,5 +1,6 @@
 $(document).ready(function(){
   var svg = document.getElementById("svg");
+  
   svg.addEventListener("load",function(){
 
     var vw = Math.min(screen.availWidth , window.innerWidth );
