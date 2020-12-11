@@ -2,14 +2,14 @@ $(document).ready(function(){
   var svg = document.getElementById("svg");
   svg.addEventListener("load",function(){
 
-    var vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
-    var vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0)
+    var vw = Math.max(screen.availWidth || 0, window.innerWidth || 0);
+    var vh = Math.max(screen.availHeight || 0, window.innerHeight || 0);
 
     var myList = ["#desktop","#laptop","#poster","#lanyard","#dog","#owl","#city"];
     // change viewBox of the svg
     function resizeSVG() {
-      vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
-      vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0)
+      vw = Math.max(screen.availWidth || 0, window.innerWidth || 0);
+      vh = Math.max(screen.availHeight || 0, window.innerHeight || 0);
       if (vw > 1100) {
         // desktop sizes
         svg.setAttribute("viewBox", "350 300 2500 1900");
@@ -55,7 +55,7 @@ $(document).ready(function(){
         document.getElementById("forward-arrow").addEventListener("click", changeView);
         document.getElementById("back-arrow").addEventListener("click", goBack);
         document.getElementById("home").addEventListener("click", goHome);
-      };
+      }
     };
 
     var currentPos = -1;
@@ -121,6 +121,7 @@ $(document).ready(function(){
     };
 
     function goHome() {
+      currentPos = -1;
       $(".welcome").show();
       $("button").show();
       $(".whitebox").hide();
