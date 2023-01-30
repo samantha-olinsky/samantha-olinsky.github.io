@@ -1,2 +1,2 @@
 # samantha-olinsky.github.io
-Sammi Olinsky's Website
+Samantha Olinsky's Website
